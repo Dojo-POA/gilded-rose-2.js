@@ -17,4 +17,10 @@ describe("Gilded Rose", function() {
     item.decreaseQuality();
     expect(item.quality).toEqual(0);
   });
+
+  it("should put zero on quality for ticket expired ", function() {
+    var item = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 33);
+    item.decreaseQuality();
+    expect(item.quality).toEqual(0);
+  });
 });
