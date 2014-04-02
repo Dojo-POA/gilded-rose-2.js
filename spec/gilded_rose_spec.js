@@ -30,4 +30,15 @@ describe("Gilded Rose", function() {
     expect(item.quality).toEqual(50);
   });
 
+  it("should not decrease quality for Aged Brie", function() {
+    var item = new Item("Aged Brie", 1, 50);
+    item.decreaseQuality();
+    expect(item.quality).toEqual(50);
+  });
+
+  it("should not decrease quality for Sulfuras, Hand of Ragnaros", function() {
+    var item = new Item("Sulfuras, Hand of Ragnaros", 1, 50);
+    item.decreaseQuality();
+    expect(item.quality).toEqual(50);
+  });
 });
