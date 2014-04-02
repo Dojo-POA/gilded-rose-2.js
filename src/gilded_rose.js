@@ -6,6 +6,10 @@ function Item(name, sell_in, quality) {
   this.updateSellIn = function () {
     this.sell_in--;
   };
+
+  this.increaseQuality = function () {
+    this.quality++;
+  };
 }
 
 
