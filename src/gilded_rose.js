@@ -12,8 +12,6 @@ function Item(name, sell_in, quality) {
   };
 }
 
-
-
 var items = [];
 
 items.push(new Item('+5 Dexterity Vest', 10, 20));
@@ -33,16 +31,16 @@ function update_quality() {
       }
     } else {
       if (items[i].quality < 50) {
-        items[i].quality = items[i].quality + 1;
+        items[i].increaseQuality();
         if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
           if (items[i].sell_in < 11) {
             if (items[i].quality < 50) {
-              items[i].quality = items[i].quality + 1;
+              items[i].increaseQuality();
             }
           }
           if (items[i].sell_in < 6) {
             if (items[i].quality < 50) {
-              items[i].quality = items[i].quality + 1;
+              items[i].increaseQuality();
             }
           }
         }
@@ -64,7 +62,7 @@ function update_quality() {
         }
       } else {
         if (items[i].quality < 50) {
-          items[i].quality = items[i].quality + 1;
+          items[i].increaseQuality();
         }
       }
     }
