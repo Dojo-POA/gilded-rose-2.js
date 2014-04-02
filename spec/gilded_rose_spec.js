@@ -23,4 +23,11 @@ describe("Gilded Rose", function() {
     item.decreaseQuality();
     expect(item.quality).toEqual(0);
   });
+
+  it("should not increase quality of item beyond 50", function() {
+    var item = new Item("banana", 1, 50);
+    item.increaseQuality();
+    expect(item.quality).toEqual(50);
+  });
+
 });

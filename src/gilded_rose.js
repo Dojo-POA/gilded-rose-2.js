@@ -8,6 +8,10 @@ function Item(name, sell_in, quality) {
   };
 
   this.increaseQuality = function () {
+    if (this.quality === 50) {
+      return;
+    }
+
     this.quality++;
   };
 
@@ -38,19 +42,13 @@ function update_quality() {
         }
       }
     } else {
-      if (items[i].quality < 50) {
-        items[i].increaseQuality();
-        if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-          if (items[i].sell_in < 11) {
-            if (items[i].quality < 50) {
-              items[i].increaseQuality();
-            }
-          }
-          if (items[i].sell_in < 6) {
-            if (items[i].quality < 50) {
-              items[i].increaseQuality();
-            }
-          }
+      items[i].increaseQuality();
+      if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+        if (items[i].sell_in < 11) {
+          items[i].increaseQuality();
+        }
+        if (items[i].sell_in < 6) {
+          items[i].increaseQuality();
         }
       }
     }
@@ -65,9 +63,7 @@ function update_quality() {
           }
         }
       } else {
-        if (items[i].quality < 50) {
-          items[i].increaseQuality();
-        }
+        items[i].increaseQuality();
       }
     }
   }
