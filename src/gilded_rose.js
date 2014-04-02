@@ -10,6 +10,10 @@ function Item(name, sell_in, quality) {
   this.increaseQuality = function () {
     this.quality++;
   };
+
+  this.decreaseQuality = function () {
+    this.quality--;
+  };
 }
 
 var items = [];
