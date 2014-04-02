@@ -3,7 +3,7 @@ function Item(name, sell_in, quality) {
   this.sell_in = sell_in;
   this.quality = quality;
 
-  this.age = function () {
+  this.updateSellIn = function () {
     this.sell_in--;
   };
 }
@@ -45,7 +45,7 @@ function update_quality() {
       }
     }
     if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-      items[i].sell_in = items[i].sell_in - 1;
+      items[i].updateSellIn();
     }
     if (items[i].sell_in < 0) {
       if (items[i].name != 'Aged Brie') {
