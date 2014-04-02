@@ -16,7 +16,9 @@ function Item(name, sell_in, quality) {
   };
 
   this.shouldDescreaseQuality = function () {
-    return this.name !== 'Aged Brie' && this.name !== 'Sulfuras, Hand of Ragnaros';
+    return this.quality > 0 &&
+           this.name !== 'Aged Brie' &&
+           this.name !== 'Sulfuras, Hand of Ragnaros';
   };
 
   this.decreaseQuality = function () {
@@ -44,9 +46,7 @@ items.push(new Item('Conjured Mana Cake', 3, 6));
 function update_quality() {
   for (var i = 0; i < items.length; i++) {
     if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-      if (items[i].quality > 0) {
-        items[i].decreaseQuality();
-      }
+      items[i].decreaseQuality();
     } else {
       items[i].increaseQuality();
       if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
@@ -63,9 +63,7 @@ function update_quality() {
     }
     if (items[i].sell_in < 0) {
       if (items[i].name != 'Aged Brie') {
-        if (items[i].quality > 0) {
-          items[i].decreaseQuality();
-        }
+        items[i].decreaseQuality();
       } else {
         items[i].increaseQuality();
       }

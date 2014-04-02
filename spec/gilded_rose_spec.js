@@ -24,6 +24,12 @@ describe("Gilded Rose", function() {
     expect(item.quality).toEqual(0);
   });
 
+  it("should not have a negative quality", function() {
+    var item = new Item("banana", 50, 0);
+    item.decreaseQuality();
+    expect(item.quality).toEqual(0);
+  });
+
   it("should not increase quality of item beyond 50", function() {
     var item = new Item("banana", 1, 50);
     item.increaseQuality();
