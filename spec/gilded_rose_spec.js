@@ -1,9 +1,9 @@
 describe("Gilded Rose", function() {
 
-  it("should foo", function() {
-    items = [ new Item("foo", 0, 0) ];
-    update_quality();
-    expect(items[0].name).toEqual("fixme");
+  it("should age item", function() {
+    var item = new Item("banana", 50, 1);
+    item.age();
+    expect(item.sell_in).toEqual(49);
   });
 
 });
