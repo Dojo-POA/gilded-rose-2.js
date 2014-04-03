@@ -47,4 +47,18 @@ describe("Gilded Rose", function() {
     item.decreaseQuality();
     expect(item.quality).toEqual(50);
   });
+
+  it('should increase quality 3 times if item is ticket and sell in is 5 days or less', function () {
+    var item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 33);
+
+    item.increaseQuality();
+
+    expect(item.quality).toEqual(36);
+  });
+
+  it('should increase quality 2 times if item is ticket and sell in is 10 days or less', function () {
+    var item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 33);
+    item.increaseQuality();
+    expect(item.quality).toEqual(35);
+  });
 });

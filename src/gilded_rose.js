@@ -12,6 +12,14 @@ function Item(name, sell_in, quality) {
       return;
     }
 
+    if (this.name === 'Backstage passes to a TAFKAL80ETC concert' && this.sell_in < 6) {
+      this.quality += 1;
+    }
+
+    if (this.name === 'Backstage passes to a TAFKAL80ETC concert' && this.sell_in < 11) {
+      this.quality += 1;
+    }
+
     this.quality++;
   };
 
@@ -49,14 +57,6 @@ function update_quality() {
       items[i].decreaseQuality();
     } else {
       items[i].increaseQuality();
-      if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-        if (items[i].sell_in < 11) {
-          items[i].increaseQuality();
-        }
-        if (items[i].sell_in < 6) {
-          items[i].increaseQuality();
-        }
-      }
     }
     if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
       items[i].updateSellIn();
